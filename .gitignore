@@ -1,0 +1,7 @@
+# Auto-generated retrieval index (rebuilt automatically on first run)
+.cache_index/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+

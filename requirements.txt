@@ -1,0 +1,20 @@
+﻿# Core Deep Learning & NLP
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.16.0
+
+# Retrieval & Search
+faiss-cpu>=1.7.4
+rank-bm25>=0.2.2
+
+# Embeddings (required by medqa_shared.py and all three stages)
+sentence-transformers>=2.2.0
+
+# 4-bit quantization (required by stage3.py GPU path)
+bitsandbytes>=0.41.0
+
+# Model loading acceleration (required by bitsandbytes / quantized inference)
+accelerate>=0.21.0
+
+# Visualization
+matplotlib>=3.7.0

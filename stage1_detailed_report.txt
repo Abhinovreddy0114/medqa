@@ -1,0 +1,162 @@
+================================================================================
+                    MEDQA STAGE 1 DETAILED EVALUATION REPORT
+================================================================================
+Dataset:                  GBaker/MedQA-USMLE-4-options (test split)
+Generator Model:          google/flan-t5-base
+Embedding Model:          sentence-transformers/all-MiniLM-L6-v2
+Retrieval Method:         BM25 + FAISS (RRF top-3)
+Corpus Size:              10,000 training passages (train split only)
+Total Questions Run:      1,273
+Correct Predictions:      344
+Final Baseline Accuracy:  27.02%
+Total Time Elapsed:       3841.27s (3.02s per question)
+================================================================================
+
+--------------------------------------------------------------------------------
+SAMPLE QUESTIONS BREAKDOWN (5 SAMPLES)
+--------------------------------------------------------------------------------
+
+[Sample Question 1] - Result: INCORRECT
+----------------------------------------
+Question:
+A 67-year-old man with a 40-pack-year smoking history presents with a 3-cm spiculated mass in the right upper lobe discovered on routine chest CT. He is asymptomatic with no mediastinal lymphadenopathy. What is the most appropriate next step in management?
+
+Options:
+  (A) Repeat CT scan in 3 months
+  (B) CT-guided percutaneous needle biopsy
+  (C) Positron emission tomography (PET-CT)
+  (D) Video-assisted thoracoscopic surgical resection
+
+Retrieved Context Snippets:
+  --- Snippet 1 ---
+  Clinical Scenario: A 72-year-old with a 2.5 cm lung nodule found on chest X-ray.
+Medical Finding & Answer: Lobectomy via VATS
+
+  --- Snippet 2 ---
+  Clinical Scenario: A 60-year-old smoker has a new right upper lobe mass on CT. No nodal enlargement is seen.
+Medical Finding & Answer: Surgical resection is the preferred treatment for stage I non-small cell lung cancer when the patient is a surgical candidate.
+
+  --- Snippet 3 ---
+  Clinical Scenario: A solitary pulmonary nodule greater than 8 mm is found in a 65-year-old.
+Medical Finding & Answer: Lobectomy
+
+Ground Truth Target: C
+Generated Answer:    D (Raw output: 'Video-assisted thoracoscopic surgical resection')
+Evaluation:          INCORRECT
+--------------------------------------------------------------------------------
+
+[Sample Question 2] - Result: INCORRECT
+----------------------------------------
+Question:
+A 32-year-old woman is found to have a serum calcium of 11.6 mg/dL on routine laboratory testing. She has no symptoms. Her PTH level is 94 pg/mL (normal 10-65). Urinary calcium excretion is elevated. What is the most likely diagnosis?
+
+Options:
+  (A) Familial hypocalciuric hypercalcemia
+  (B) Malignancy-associated hypercalcemia
+  (C) Primary hyperparathyroidism
+  (D) Secondary hyperparathyroidism
+
+Retrieved Context Snippets:
+  --- Snippet 1 ---
+  Clinical Scenario: A 55-year-old with kidney stones and elevated serum calcium.
+Medical Finding & Answer: Secondary hyperparathyroidism
+
+  --- Snippet 2 ---
+  Clinical Scenario: A patient has hypercalcemia with an elevated PTH and high urinary calcium excretion.
+Medical Finding & Answer: Familial hypocalciuric hypercalcemia is distinguished by a low calcium-to-creatinine clearance ratio.
+
+  --- Snippet 3 ---
+  Clinical Scenario: A 40-year-old is found to have incidental hypercalcemia with an elevated PTH.
+Medical Finding & Answer: Secondary hyperparathyroidism
+
+Ground Truth Target: C
+Generated Answer:    D (Raw output: 'Secondary hyperparathyroidism')
+Evaluation:          INCORRECT
+--------------------------------------------------------------------------------
+
+[Sample Question 3] - Result: CORRECT
+----------------------------------------
+Question:
+A 25-year-old woman presents with episodic headaches, diaphoresis, and palpitations. Her blood pressure is 210/118 mmHg during an episode. Twenty-four-hour urine metanephrines are markedly elevated. She is scheduled for adrenalectomy. Which of the following should be administered first?
+
+Options:
+  (A) Propranolol
+  (B) Phenoxybenzamine
+  (C) Labetalol
+  (D) Metoprolol
+
+Retrieved Context Snippets:
+  --- Snippet 1 ---
+  Clinical Scenario: A patient with pheochromocytoma is being prepared for surgical resection.
+Medical Finding & Answer: Alpha-adrenergic blockade with phenoxybenzamine must be initiated before beta-blockade to prevent unopposed alpha-stimulation and hypertensive crisis.
+
+  --- Snippet 2 ---
+  Clinical Scenario: A 30-year-old with adrenal mass and catecholamine excess requires preoperative preparation.
+Medical Finding & Answer: Phenoxybenzamine
+
+  --- Snippet 3 ---
+  Clinical Scenario: A young woman with paroxysmal hypertension and elevated urinary catecholamines.
+Medical Finding & Answer: Preoperative alpha-blockade is essential in pheochromocytoma management prior to beta-blocker initiation.
+
+Ground Truth Target: B
+Generated Answer:    B (Raw output: 'B')
+Evaluation:          CORRECT
+--------------------------------------------------------------------------------
+
+[Sample Question 4] - Result: INCORRECT
+----------------------------------------
+Question:
+A neonate born at 28 weeks gestation develops progressive respiratory distress within 2 hours of birth. Chest radiograph demonstrates bilateral ground-glass opacities with air bronchograms. Which of the following is the most appropriate initial intervention?
+
+Options:
+  (A) Inhaled nitric oxide
+  (B) Broad-spectrum intravenous antibiotics
+  (C) Exogenous surfactant replacement therapy
+  (D) High-frequency oscillatory ventilation
+
+Retrieved Context Snippets:
+  --- Snippet 1 ---
+  Clinical Scenario: A premature newborn at 30 weeks gestation has increasing oxygen requirements and stiff lungs.
+Medical Finding & Answer: High-frequency oscillatory ventilation
+
+  --- Snippet 2 ---
+  Clinical Scenario: A 26-week premature infant is delivered and develops respiratory failure.
+Medical Finding & Answer: Inhaled nitric oxide is used for persistent pulmonary hypertension of the newborn, not primarily for RDS.
+
+  --- Snippet 3 ---
+  Clinical Scenario: A preterm infant with ground-glass opacities on chest X-ray and a requirement for supplemental oxygen.
+Medical Finding & Answer: High-frequency oscillatory ventilation
+
+Ground Truth Target: C
+Generated Answer:    D (Raw output: 'High-frequency oscillatory ventilation')
+Evaluation:          INCORRECT
+--------------------------------------------------------------------------------
+
+[Sample Question 5] - Result: INCORRECT
+----------------------------------------
+Question:
+A 45-year-old man presents with progressive exertional dyspnea and bilateral ankle edema for 4 months. Echocardiography reveals an ejection fraction of 32% with global hypokinesis. He has no prior cardiac history. Which of the following is the most appropriate initial pharmacotherapy?
+
+Options:
+  (A) Furosemide and spironolactone only
+  (B) Digoxin monotherapy
+  (C) Carvedilol and lisinopril
+  (D) Amlodipine and furosemide
+
+Retrieved Context Snippets:
+  --- Snippet 1 ---
+  Clinical Scenario: A 50-year-old man with newly diagnosed dilated cardiomyopathy and low EF.
+Medical Finding & Answer: Digoxin monotherapy
+
+  --- Snippet 2 ---
+  Clinical Scenario: A patient with heart failure with reduced ejection fraction is started on pharmacotherapy.
+Medical Finding & Answer: Furosemide and spironolactone only
+
+  --- Snippet 3 ---
+  Clinical Scenario: Management of chronic systolic heart failure in a 48-year-old.
+Medical Finding & Answer: Guideline-directed medical therapy for HFrEF includes a beta-blocker and ACE inhibitor or ARB, started at low doses and uptitrated.
+
+Ground Truth Target: C
+Generated Answer:    A (Raw output: 'Furosemide and spironolactone only')
+Evaluation:          INCORRECT
+--------------------------------------------------------------------------------

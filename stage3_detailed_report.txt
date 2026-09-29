@@ -1,0 +1,40 @@
+================================================================================
+       MEDQA STAGE 3: QUANTIZED CRAG EVALUATION REPORT
+================================================================================
+Dataset:                    GBaker/MedQA-USMLE-4-options (test split)
+Evaluator Checkpoint:       ./my_medical_evaluator/ (trained by stage2.py)
+Generator Model:            google/flan-t5-base
+Compute Device:             NVIDIA GeForce GTX 1650
+
+--------------------------------------------------------------------------------
+QUANTIZATION DETAILS
+--------------------------------------------------------------------------------
+Method Used:                bitsandbytes NF4 (4-bit)
+Model Size (before):        261.8 MB  (FP16 checkpoint)
+Model Size (after):         35.2 MB
+Compression Ratio:          7.4x smaller
+
+--------------------------------------------------------------------------------
+RETRIEVAL CONFIGURATION
+--------------------------------------------------------------------------------
+Corpus Source:              First 10,000 training passages (train split ONLY)
+Retriever:                  BM25 + FAISS (RRF k=60)
+Top-K Candidates:           5
+Relevance Threshold:        >= 0.50
+Fallback Policy:            Top-2 by retrieval rank (if none pass threshold)
+
+--------------------------------------------------------------------------------
+FILTERING EFFICIENCY
+--------------------------------------------------------------------------------
+Total Candidates Evaluated: 6365
+Candidates Purged:          2447 (38.4%)
+Candidates Retained:        3918 (61.6%)
+
+--------------------------------------------------------------------------------
+CRAG EVALUATION RESULTS
+--------------------------------------------------------------------------------
+Total Questions:            1273
+Correct Predictions:        801
+Final CRAG Accuracy:        62.92%
+Total Time Elapsed:         3961.44s (3.11s per question)
+================================================================================
